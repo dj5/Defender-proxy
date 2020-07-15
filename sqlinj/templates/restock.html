@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Add To Store{% endblock %}
+
+{% block content %}
+
+<div id="content">
+
+<br><br>
+
+<h1>Welcome To BasicStore Online</h1>
+<h2>Add An Item To The Shop</h2><br>
+
+<form action="/api/v1.0/storeAPI" method="POST">
+	Item Name: <input type="text" name="name" id="itemName" value=""/> <br><br>
+	Quantity: <input type="text" name="quantity" id="itemQuantity" value=""/> <br><br>
+	Price: <input type="text" name="price" id="itemPrice" value=""/> <br><br>
+	<input class="button" type="submit" value="Submit" />
+</form>
+
+<br><br>
+
+<p id="stat"></p>
+
+</div>
+{% endblock %}

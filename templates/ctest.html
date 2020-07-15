@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+{% autoescape false %}
+<html>
+    <head>
+        <style>
+body{background-color:#99FFFF;}
+h1 {margin-left: 35%;
+color:#b03060;}
+table{margin-left: 35%;
+ border:  5px solid;
+border-width:30%;
+ border-collapse: collapse; }
+button{margin-left: 35%;}
+td{border-style: solid;
+padding: 10px;}
+div{
+ text-align: center;
+}
+</style>
+<script>
+function submitd()
+{
+var price, disc,discvl, result;
+price=document.getElementById("pr").value;
+disc= document.getElementById("sea");
+if (disc=="summer")
+{
+discvl=10;
+}
+else if (disc=="newyear")
+{
+discvl=5;
+}
+else
+{
+discvl=15;
+}
+alert(price);
+result= price- (price *(discvl/100));
+ document.getElementById('d1').innerHTML="The discount is "+discvl+"%";
+ document.getElementById('d2').innerHTML="The discounted price : Rs "+result;
+
+
+}
+
+</script>
+    </head>
+
+    <body>
+<form action = "http://localhost:8080/calculate" method="GET">	
+        <h1>DISCOUNT PRICE</h1>
+            	<table>
+		 <tr>
+    <td><label>Product Name</label></td>
+    <td> <input type="text" id="nm" name="name"  required></td>
+  </tr>
+<tr>
+<td><label>Product Price</label></td>
+    <td> <input type="number" id="pr" name="price" min="15000" required></td>
+  </tr>
+<tr>
+<td><label>Product Season</label></td>
+    <td>  <select id="sea" name="season" required>
+  <option value="summer">SUMMER SALE</option>
+  <option value="newyear">NEW YEAR SALE</option>
+  <option value="clearance">CLEARANCE SALE</option>
+</select> </td>
+  </tr>
+
+	</table>
+	<button type="submit" value="GET DISCOUNT PRICE" onclick="submitd()">GET DISCOUNT PRICE</button>
+<div id="d1"></div>
+<div id="d2"></div>
+<div id= "d3">"{{ name }}"</div>
+	
+
+</form>
+    
+    </body>
+
+</html>
+{% endautoescape %}

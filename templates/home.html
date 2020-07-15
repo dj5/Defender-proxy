@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title>Home page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+    <style>
+body{background-color:#99FFFF;}
+h1 {margin-left: 35%;
+color:#b03060;}
+table{margin-left: 35%;
+ border:  5px solid;
+border-width:30%;
+ border-collapse: collapse; }
+button{margin-left: 35%;}
+td{border-style: solid;
+padding: 10px;}
+div{
+ text-align: center;
+}
+</style> 
+ </head>
+  <body>
+    <div class="container">
+      <h1></h1>
+      <br>
+      <form action="" method="post">
+  <label>Enter Server Ip</label>
+        <input type="text" placeholder="" name="ip" >
+<input class="btn btn-default" type="submit" value="Add IP"> <br>
+<label>Enter New rule for sqli</label>
+ <select id="pl" name="policy" required>
+  <option value="SQLi">SQLi</option>
+  <option value="XSS">XSS</option>
+
+</select> 
+         <input type="text" placeholder="SQLi policy" name="sqli" >
+        <input class="btn btn-default" type="submit" value="Add policy">
+      </form>
+      {% if changes %}
+        <p class="error"><strong>Changes: </strong> {{ changes }}
+      {% endif %}
+    </div>
+  </body>
+</html>
+
